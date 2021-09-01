@@ -18,27 +18,35 @@ export default function App() {
       if (valor_prestamo < 4000000) {
         alert('El valor solicitado debe ser superior a $ 4.000.000')
       }
-      else {
+      else { 
+        if (tipo_prestamo != 'Vivienda' && tipo_prestamo != 'Educacion' && tipo_prestamo != 'Vehiculo' && tipo_prestamo != 'Libre Inversion'){
+          alert('Debe ingresar un tipo de préstamo valido')
+        } else{
+          let interes;
+        switch (tipo_prestamo) {
+          case 'Vivienda':
+            interes = 0.5
+            break;
+          case 'Educacion':
+            interes = 0.7
+            break;
+          case 'Vehiculo':
+            interes = 1.4
+            break;
+          case 'Libre Inversion':
+            interes = 1.8
+            break;
+        }
         setValorPrestamo(parseFloat(valor_prestamo))
+        setTipoPrestamo(parseFloat(interes))
+        alert(valor_prestamo)
+        alert(tipo_prestamo)
+        alert(interes)
+        }    
+        
       }
     }
-    let interes;
-    switch (tipo_prestamo) {
-      case 'Vivienda':
-        interes = 0.5
-        break;
-      case 'Educacion':
-        interes = 0.7
-        break;
-      case 'Vehiculo':
-        interes = 1.4
-        break;
-      case 'Libre Inversion':
-        interes = 1.8
-        break;
-    }
-    setTipoPrestamo(parseFloat(interes))
-    alert(interes)
+
   }
 
   return (
